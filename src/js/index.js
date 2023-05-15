@@ -1,9 +1,21 @@
 document.querySelector("#botao-alterar-tema").addEventListener("click", () => {
   if (document.querySelector("body").classList.contains("modo-noturno")) {
-    document.querySelector("body").classList.remove("modo-noturno");
-    document.querySelector(".imagem-botao").setAttribute("src", "src/images/sun.png");
+    tirarClasse("body", "modo-noturno")
+    mudarIcone(".imagem-botao", "src", "src/images/sun.png")
   } else {
-    document.querySelector("body").classList.add("modo-noturno");
-    document.querySelector(".imagem-botao").setAttribute("src", "src/images/moon.png");
+    colocarClasse("body", "modo-noturno")
+    mudarIcone(".imagem-botao", "src", "src/images/moon.png")
   }
 });
+
+function tirarClasse(item, classe) {
+    document.querySelector(item).classList.remove(classe);
+}
+
+function colocarClasse(item, classe) {
+    document.querySelector(item).classList.add(classe);
+}
+
+function mudarIcone(item, atributo, caminhoImagem) {
+    document.querySelector(item).setAttribute(atributo, caminhoImagem);
+}
